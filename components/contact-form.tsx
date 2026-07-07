@@ -33,13 +33,14 @@ export default function ContactForm() {
         },
         body: JSON.stringify({
           access_key: WK,
-          subject: "استفسار جديد - تطوير مصر – SALT North Coast",
+          subject: "Lead - Tatweer Misr - SALT North Coast",
           from_name: "Tatweer Misr Landing",
           botcheck: "",
+          replyto: formData.email || "noreply@example.com",
           name: formData.name,
           phone: formData.phone,
-          email: formData.email || "لم يتم تحديده",
-          "نوع الوحدة": formData.unitType || "لم يتم تحديده",
+          email: formData.email || "N/A",
+          "Unit Type": formData.unitType || "N/A",
         }),
       })
 
