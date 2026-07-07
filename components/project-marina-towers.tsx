@@ -1,5 +1,7 @@
 "use client"
 
+import { trackWhatsApp, trackCall } from "@/lib/tracking"
+
 export default function ProjectMarinaTowers() {
   const phoneNumber = "+201016934396"
   const projectName = "Marina Towers IL Monte Galala"
@@ -86,9 +88,9 @@ export default function ProjectMarinaTowers() {
           <h3 className="text-2xl font-bold mb-2">احجز وحدتك في Marina Towers</h3>
           <p className="text-white/80 mb-6">تواصل معنا للحصول على العروض الحصرية والأسعار</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href={waLink} target="_blank" rel="noopener noreferrer"
+            <a href={waLink} target="_blank" rel="noopener noreferrer" onClick={trackWhatsApp}
               className="bg-white text-primary px-8 py-3 font-bold hover:bg-gray-100 transition-colors">واتساب</a>
-            <a href={`tel:${phoneNumber}`}
+            <a href={`tel:${phoneNumber}`} onClick={trackCall}
               className="border-2 border-white text-white px-8 py-3 font-bold hover:bg-white hover:text-primary transition-colors">اتصل الآن</a>
           </div>
         </div>

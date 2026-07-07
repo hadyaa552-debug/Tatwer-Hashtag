@@ -1,6 +1,7 @@
 "use client"
 
 import { Home, Maximize, Building } from "lucide-react"
+import { trackWhatsApp } from "@/lib/tracking"
 
 export default function SaltUnits() {
   const phoneNumber = "+201016934396"
@@ -48,7 +49,7 @@ export default function SaltUnits() {
           </div>
 
           <div className="text-center">
-            <a href={waLink} target="_blank" rel="noopener noreferrer"
+            <a href={waLink} target="_blank" rel="noopener noreferrer" onClick={trackWhatsApp}
               className="inline-block bg-primary text-white px-10 py-4 font-bold text-lg hover:bg-primary/90 transition-colors">
               اعرف أسعار اليوم عبر واتساب
             </a>

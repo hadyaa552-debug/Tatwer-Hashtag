@@ -1,6 +1,7 @@
 "use client"
 
 import { CreditCard, Calendar, CheckCircle } from "lucide-react"
+import { trackWhatsApp, trackCall } from "@/lib/tracking"
 
 export default function SaltPayment() {
   const phoneNumber = "+201016934396"
@@ -65,11 +66,11 @@ export default function SaltPayment() {
           <div className="text-center space-y-3">
             <p className="text-muted-foreground">جدية حجز: <span className="font-bold text-foreground">100,000 جنيه</span></p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href={waLink} target="_blank" rel="noopener noreferrer"
+              <a href={waLink} target="_blank" rel="noopener noreferrer" onClick={trackWhatsApp}
                 className="bg-primary text-white px-10 py-4 font-bold text-lg hover:bg-primary/90 transition-colors">
                 احجز وحدتك الآن
               </a>
-              <a href={`tel:${phoneNumber}`}
+              <a href={`tel:${phoneNumber}`} onClick={trackCall}
                 className="border-2 border-primary text-primary px-10 py-4 font-bold text-lg hover:bg-primary hover:text-white transition-colors">
                 اتصل بنا
               </a>

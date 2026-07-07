@@ -4,6 +4,7 @@ import type React from "react"
 import { useState, useEffect } from "react"
 import Link from "next/link"
 import { Phone } from "lucide-react"
+import { trackCall } from "@/lib/tracking"
 
 const menuItems = [
   { name: "SALT", id: "salt" },
@@ -52,7 +53,7 @@ export default function Header() {
           <div className="flex items-center gap-3 lg:gap-4">
             <div className="flex flex-col items-end">
               <span className="text-xs text-muted-foreground hidden sm:block">للاستفسار والحجز</span>
-              <a href={`tel:${phoneNumber}`}
+              <a href={`tel:${phoneNumber}`} onClick={trackCall}
                 className="text-base lg:text-lg font-bold text-primary hover:text-primary/80 transition-all duration-300 flex items-center gap-2">
                 <Phone className="w-4 h-4 sm:hidden" />
                 <span dir="ltr">{displayNumber}</span>

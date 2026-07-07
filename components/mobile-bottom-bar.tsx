@@ -2,6 +2,7 @@
 
 import { Phone, UserPlus } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { trackCall } from "@/lib/tracking"
 
 export default function MobileBottomBar() {
   const phoneNumber = "+201016934396"
@@ -21,7 +22,7 @@ export default function MobileBottomBar() {
           variant="outline"
           asChild
         >
-          <a href={`tel:${phoneNumber}`}>
+          <a href={`tel:${phoneNumber}`} onClick={trackCall}>
             <Phone className="h-5 w-5" />
             <span>اتصل الآن</span>
           </a>

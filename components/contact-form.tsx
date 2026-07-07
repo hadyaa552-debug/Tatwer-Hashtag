@@ -45,6 +45,13 @@ export default function ContactForm() {
       const result = await response.json()
 
       if (result.success) {
+        if (typeof window !== "undefined" && typeof window.gtag === "function") {
+          window.gtag("event", "conversion", {
+            send_to: "AW-18301107500/xrB2CNrNr8wcEKz60pZE",
+            value: 1.0,
+            currency: "EGP",
+          })
+        }
         toast({
           title: "تم الإرسال بنجاح!",
           description: "سنتواصل معك في أقرب وقت ممكن",

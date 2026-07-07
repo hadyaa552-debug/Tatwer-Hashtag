@@ -1,5 +1,7 @@
 "use client"
 
+import { trackWhatsApp } from "@/lib/tracking"
+
 export default function WhatsAppWidget() {
   const phoneNumber = "+201016934396"
   const message = encodeURIComponent("مرحباً، أنا مهتم بمشاريع تطوير مصر وأريد معرفة المزيد عن الوحدات المتاحة وأنظمة السداد.")
@@ -9,6 +11,7 @@ export default function WhatsAppWidget() {
       href={`https://wa.me/${phoneNumber.replace(/[^0-9]/g, "")}?text=${message}`}
       target="_blank"
       rel="noopener noreferrer"
+      onClick={trackWhatsApp}
       className="fixed bottom-24 md:bottom-6 left-6 z-50 group"
       aria-label="تواصل عبر واتساب"
     >

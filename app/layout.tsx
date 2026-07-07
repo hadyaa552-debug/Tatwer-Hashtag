@@ -92,6 +92,13 @@ export default function RootLayout({
   return (
     <html lang="ar" dir="rtl">
       <head>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18301107500" />
+        <script dangerouslySetInnerHTML={{ __html: `
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'AW-18301107500');
+        `}} />
         <StructuredData />
       </head>
       <body className={`${cairo.variable} font-sans antialiased`}>
