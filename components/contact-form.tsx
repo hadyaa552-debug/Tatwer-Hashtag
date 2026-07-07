@@ -8,6 +8,8 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { useToast } from "@/hooks/use-toast"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 
+const WK = "YOUR_WEB3FORMS_KEY_HERE"
+
 export default function ContactForm() {
   const [loading, setLoading] = useState(false)
   const { toast } = useToast()
@@ -23,26 +25,26 @@ export default function ContactForm() {
     setLoading(true)
 
     try {
-      const response = await fetch("https://formsubmit.co/ajax/apkzoz85@gmail.com", {
+      const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
           Accept: "application/json",
         },
         body: JSON.stringify({
+          access_key: WK,
+          subject: "استفسار جديد - تطوير مصر – SALT North Coast",
+          from_name: "Tatweer Misr Landing",
           name: formData.name,
           phone: formData.phone,
           email: formData.email || "لم يتم تحديده",
           "نوع الوحدة": formData.unitType || "لم يتم تحديده",
-          _subject: "استفسار جديد - تطوير مصر – مشاريع متعددة",
-          _captcha: "false",
-          _template: "table",
-          _sender: "Tatweer Misr",
-          _cc: "Info@nurlinebrokerage.com",
         }),
       })
 
-      if (response.ok) {
+      const result = await response.json()
+
+      if (result.success) {
         toast({
           title: "تم الإرسال بنجاح!",
           description: "سنتواصل معك في أقرب وقت ممكن",
@@ -63,7 +65,7 @@ export default function ContactForm() {
   }
 
   return (
-    <Card id="contact" className="shadow-2xl border-0 bg-card my-0 transition-all duration-500 hover:shadow-3xl">
+    <Card id="contact-form" className="shadow-2xl border-0 bg-card my-0 transition-all duration-500 hover:shadow-3xl">
       <CardHeader className="pb-0 space-y-0">
         <CardTitle className="text-2xl font-bold text-foreground my-0 text-center">احجز استشارة</CardTitle>
       </CardHeader>
@@ -105,13 +107,13 @@ export default function ContactForm() {
               <SelectValue placeholder="نوع الوحدة *" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="apartment">شقة</SelectItem>
-              <SelectItem value="villa">فيلا</SelectItem>
-              <SelectItem value="townhouse">تاون هاوس</SelectItem>
-              <SelectItem value="duplex">دوبلكس</SelectItem>
-              <SelectItem value="penthouse">بنتهاوس</SelectItem>
-              <SelectItem value="studio">استوديو</SelectItem>
-              <SelectItem value="commercial">وحدة تجارية</SelectItem>
+              <SelectItem value="شاليه">شاليه</SelectItem>
+              <SelectItem value="تاون هاوس">تاون هاوس</SelectItem>
+              <SelectItem value="توين هاوس">توين هاوس</SelectItem>
+              <SelectItem value="فيلا مستقلة">فيلا مستقلة</SelectItem>
+              <SelectItem value="بنتهاوس">بنتهاوس</SelectItem>
+              <SelectItem value="لوفت">لوفت</SelectItem>
+              <SelectItem value="ستوديو">ستوديو</SelectItem>
             </SelectContent>
           </Select>
           <Button
