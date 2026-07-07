@@ -8,7 +8,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { useToast } from "@/hooks/use-toast"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 
-const WK = "YOUR_WEB3FORMS_KEY_HERE"
+const WK = "650038c6-d085-40c0-843f-bfc5dab8c48c"
 
 export default function ContactForm() {
   const [loading, setLoading] = useState(false)
