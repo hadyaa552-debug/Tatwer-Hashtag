@@ -36,10 +36,10 @@ export default function ContactForm() {
           subject: "Lead - Tatweer Misr - SALT North Coast",
           from_name: "Tatweer Misr Landing",
           botcheck: "",
-          replyto: formData.email || "noreply@example.com",
+          replyto: formData.email,
           name: formData.name,
           phone: formData.phone,
-          email: formData.email || "N/A",
+          email: formData.email,
           "Unit Type": formData.unitType || "N/A",
         }),
       })
@@ -101,9 +101,10 @@ export default function ContactForm() {
           <Input
             id="email"
             type="email"
-            placeholder="البريد الإلكتروني (example@email.com)"
+            placeholder="البريد الإلكتروني *"
             value={formData.email}
             onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+            required
             className="text-right h-11 text-sm transition-all duration-300"
             dir="ltr"
           />
